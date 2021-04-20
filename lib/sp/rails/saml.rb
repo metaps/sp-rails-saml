@@ -1,4 +1,5 @@
 require "sp/rails/saml/version"
+require "sp/rails/saml/hello"
 
 module Sp
   module Rails
