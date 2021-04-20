@@ -3,7 +3,7 @@ RSpec.describe Sp::Rails::Saml do
     expect(Sp::Rails::Saml::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "return greeting message" do
+    expect(Sp::Rails::Saml::Greet.say("Eren")).to eq("Eren, hello.")
   end
 end
