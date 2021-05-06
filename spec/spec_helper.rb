@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "sp/rails/saml"
+require "generator_spec"
+require 'rails/generators'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
