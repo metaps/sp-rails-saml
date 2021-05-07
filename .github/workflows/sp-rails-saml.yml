@@ -1,0 +1,22 @@
+name: sp-rails-saml
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  sp-rails-saml:
+    runs-on: ubuntu-latest
+    container: ruby:2.6
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Test
+        run: bundle exec rake
