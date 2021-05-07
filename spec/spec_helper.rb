@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "sp/rails/saml"
+require "sp_rails_saml"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,8 +1,8 @@
-require_relative 'lib/sp/rails/saml/version'
+require_relative 'lib/sp_rails_saml/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sp-rails-saml"
-  spec.version       = Sp::Rails::Saml::VERSION
+  spec.version       = SpRailsSaml::VERSION
   spec.authors       = ["psyashes"]
   spec.email         = ["43512814+psyashes@users.noreply.github.com"]
 
