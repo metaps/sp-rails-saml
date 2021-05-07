@@ -9,7 +9,7 @@ on:
 jobs:
   sp-rails-saml:
     runs-on: ubuntu-latest
-    container: ruby:2.7.2
+    container: ruby:2.6
     steps:
       - uses: actions/checkout@v2
 
