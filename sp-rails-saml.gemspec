@@ -1,4 +1,5 @@
-require_relative 'lib/sp_rails_saml/version'
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+require 'sp-rails-saml/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sp-rails-saml"

@@ -5,10 +5,7 @@ module SpRailsSaml
       attr_accessor :name_identifier_format
       attr_accessor :authn_context
       attr_accessor :authn_context_comparison
-      attr_accessor :idp_sso_service_url
       attr_accessor :assertion_consumer_service_url
-      attr_accessor :idp_cert
-      attr_accessor :idp_entity_id
 
       def setup(options = {})
         options.each do |key, value|
