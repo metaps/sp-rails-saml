@@ -10,7 +10,6 @@ module ActiveRecord
       def copy_migration
         migration_template "timestamp_create_saml_settings.rb", "db/migrate/timestamp_create_saml_settings"
       end
-
     end
   end
 end
