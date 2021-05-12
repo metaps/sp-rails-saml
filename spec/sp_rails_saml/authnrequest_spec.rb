@@ -1,5 +1,5 @@
 RSpec.describe SpRailsSaml::Authnrequest do
-  describe '#create' do
+  describe '#to_url' do
     let(:saml_setting) { OpenStruct.new(idp_sso_url: 'https://example.com', idp_entity_id: 'https://example.com') }
     let(:sp_entity_id) { 'https://example.com' }
     let(:name_identifier_format) { 'name_identifier_format' }
@@ -18,12 +18,12 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create sso_url with saml request' do
-      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).create
+      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
       expect(sso_url).to match(/^https:\/\/example\.com\?SAMLRequest=/)
     end
 
     it 'should create Authnrequest tag' do
-      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).create
+      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
       saml_request = sso_url.split("=").last
 
       decoded_saml_request = Base64.decode64(saml_request)
@@ -34,7 +34,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create Issuer tag' do
-      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).create
+      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
       saml_request = sso_url.split("=").last
 
       decoded_saml_request = Base64.decode64(saml_request)
@@ -44,7 +44,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create RequestAuthnContext tag' do
-      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).create
+      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
       saml_request = sso_url.split("=").last
 
       decoded_saml_request = Base64.decode64(saml_request)
@@ -55,7 +55,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create NameIDPolicy tag' do
-      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).create
+      sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
       saml_request = sso_url.split("=").last
 
       decoded_saml_request = Base64.decode64(saml_request)

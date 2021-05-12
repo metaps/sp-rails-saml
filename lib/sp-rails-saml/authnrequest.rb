@@ -3,7 +3,7 @@ module SpRailsSaml
     def initialize(saml_setting)
     end
 
-    def create
+    def to_url
     end
   end
 end
