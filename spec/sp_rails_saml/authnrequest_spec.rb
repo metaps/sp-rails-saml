@@ -29,7 +29,6 @@ RSpec.describe SpRailsSaml::Authnrequest do
       decoded_saml_request = Base64.decode64(saml_request)
       doc = REXML::Document.new(decoded_saml_request)
 
-      expect(doc.elements['samlp:AuthnRequest']['Version']).to eq '2.0'
       expect(doc.elements['samlp:AuthnRequest']['Destination']).to eq saml_setting.idp_sso_url
       expect(doc.elements['samlp:AuthnRequest']['AssertionConsumerServiceURL']).to eq assertion_consumer_service_url
     end
