@@ -8,7 +8,7 @@ module SpRailsSaml
     source_root File.expand_path("../templates", __FILE__)
 
     def copy_migration
-      migration_template "timestamp_create_saml_settings.rb", "db/migrate/timestamp_create_saml_settings.rb"
+      migration_template "create_saml_settings.rb", "db/migrate/create_saml_settings.rb"
     end
   end
 end
