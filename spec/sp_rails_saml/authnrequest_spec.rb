@@ -1,6 +1,3 @@
-require 'ostruct'
-require 'rexml/document'
-
 RSpec.describe SpRailsSaml::Authnrequest do
   describe '#create' do
     let(:saml_setting) { OpenStruct.new(idp_sso_url: 'https://example.com', idp_entity_id: 'https://example.com') }
