@@ -24,6 +24,6 @@ EOS
   end
 
   it "should create saml_settings migration file" do
-    assert_migration "db/migrate/timestamp_create_saml_settings", migration_text
+    assert_migration "db/migrate/create_saml_settings", migration_text
   end
 end
