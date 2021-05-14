@@ -1,7 +1,9 @@
 module SpRailsSaml
   class Settings
     RUBY_SAML_DEFAULT_SETTINGS = {
-      compress_request: false
+      compress_request: false,
+      skip_subject_confirmation: true,
+      skip_conditions: true
     }.freeze
 
     class << self
