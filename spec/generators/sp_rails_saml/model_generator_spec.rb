@@ -23,7 +23,18 @@ end
 EOS
   end
 
+  let(:model_text) do
+<<-EOS
+class SamlSetting < ApplicationRecord
+end
+EOS
+  end
+
   it "should create saml_settings migration file" do
     assert_migration "db/migrate/create_saml_settings", migration_text
+  end
+
+  it "should create saml_settings model file" do
+    assert_file "app/models/saml_setting.rb", model_text
   end
 end
