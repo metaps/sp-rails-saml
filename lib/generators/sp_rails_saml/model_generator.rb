@@ -20,12 +20,19 @@ class CreateSamlSettings < ActiveRecord::Migration[6.1]
   end
 end
 EOS
-
+    
     # Overwrite default migration file for arguments
     File.write("./lib/generators/sp_rails_saml/templates/create_saml_settings.rb", default_migration_file)
 
     def copy_migration
       migration_template "create_saml_settings.rb", "db/migrate/create_saml_settings.rb"
+    end
+
+    def copy_model
+      create_file "app/models/saml_setting.rb", <<-FILE
+class SamlSetting < ApplicationRecord
+end
+    FILE
     end
   end
 end
