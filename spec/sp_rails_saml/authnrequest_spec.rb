@@ -2,10 +2,10 @@ RSpec.describe SpRailsSaml::Authnrequest do
   describe '#to_url' do
     let(:saml_setting) { OpenStruct.new(idp_sso_url: 'https://example.com', idp_entity_id: 'https://example.com') }
     let(:sp_entity_id) { 'https://example.com' }
-    let(:name_identifier_format) { 'name_identifier_format' }
-    let(:authn_context) { 'authn_context' }
-    let(:authn_context_comparison) { 'authn_context_comparison' }
-    let(:assertion_consumer_service_url) { 'assertion_consumer_service_url' }
+    let(:name_identifier_format) { 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
+    let(:authn_context) { 'urn:oasis:names:tc:SAML:2.0:ac:classes:X509' }
+    let(:authn_context_comparison) { 'exact' }
+    let(:assertion_consumer_service_url) { 'https://example.com' }
 
     before do
       SpRailsSaml::Settings.setup do |config|
@@ -24,7 +24,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
 
     it 'should create Authnrequest tag' do
       sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
-      saml_request = sso_url.split("=").last
+      saml_request = CGI.unescape(sso_url.split("=").last)
 
       decoded_saml_request = Base64.decode64(saml_request)
       doc = REXML::Document.new(decoded_saml_request)
@@ -35,33 +35,33 @@ RSpec.describe SpRailsSaml::Authnrequest do
 
     it 'should create Issuer tag' do
       sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
-      saml_request = sso_url.split("=").last
+      saml_request = CGI.unescape(sso_url.split("=").last)
 
       decoded_saml_request = Base64.decode64(saml_request)
       doc = REXML::Document.new(decoded_saml_request)
 
-      expect(doc.elements['samlp:AuthnRequest/Issuer'].text.strip).to eq sp_entity_id
+      expect(doc.elements['samlp:AuthnRequest/saml:Issuer'].text.strip).to eq sp_entity_id
     end
 
     it 'should create RequestAuthnContext tag' do
       sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
-      saml_request = sso_url.split("=").last
+      saml_request = CGI.unescape(sso_url.split("=").last)
 
       decoded_saml_request = Base64.decode64(saml_request)
       doc = REXML::Document.new(decoded_saml_request)
 
-      expect(doc.elements['samlp:AuthnRequest/RequestedAuthnContext']['Comparison']).to eq authn_context_comparison
-      expect(doc.elements['samlp:AuthnRequest/RequestedAuthnContext/AuthnContextClassRef'].text.strip).to eq authn_context
+      expect(doc.elements['samlp:AuthnRequest/samlp:RequestedAuthnContext']['Comparison']).to eq authn_context_comparison
+      expect(doc.elements['samlp:AuthnRequest/samlp:RequestedAuthnContext/saml:AuthnContextClassRef'].text.strip).to eq authn_context
     end
 
     it 'should create NameIDPolicy tag' do
       sso_url = SpRailsSaml::Authnrequest.new(saml_setting).to_url
-      saml_request = sso_url.split("=").last
+      saml_request = CGI.unescape(sso_url.split("=").last)
 
       decoded_saml_request = Base64.decode64(saml_request)
       doc = REXML::Document.new(decoded_saml_request)
 
-      expect(doc.elements['samlp:AuthnRequest/NameIDPolicy']['Format']).to eq name_identifier_format
+      expect(doc.elements['samlp:AuthnRequest/samlp:NameIDPolicy']['Format']).to eq name_identifier_format
     end
   end
 end
