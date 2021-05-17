@@ -1,7 +1,8 @@
 require 'ostruct'
 require 'rexml/document'
 require "bundler/setup"
-require "sp/rails/saml"
+require "sp-rails-saml"
+require "generator_spec"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
