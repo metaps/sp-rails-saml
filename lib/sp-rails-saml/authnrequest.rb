@@ -20,7 +20,7 @@ module SpRailsSaml
       settings.authn_context_comparison       = SpRailsSaml::Settings.authn_context_comparison
       settings.idp_entity_id                  = @saml_setting.idp_entity_id
       settings.idp_sso_service_url            = @saml_setting.idp_sso_url
-      settings.compress_request               = false
+      settings.compress_request               = SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:compress_request]
       settings
     end
   end

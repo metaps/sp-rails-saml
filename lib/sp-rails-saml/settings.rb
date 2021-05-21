@@ -1,5 +1,9 @@
 module SpRailsSaml
   class Settings
+    RUBY_SAML_DEFAULT_SETTINGS = {
+      compress_request: false
+    }.freeze
+
     class << self
       attr_accessor :sp_entity_id
       attr_accessor :name_identifier_format
