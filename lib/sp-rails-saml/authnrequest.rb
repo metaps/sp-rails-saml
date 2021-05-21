@@ -5,7 +5,7 @@ module SpRailsSaml
     end
 
     def to_url
-      request = ::OneLogin::RubySaml::Authrequest.new
+      request = OneLogin::RubySaml::Authrequest.new
       request.create(ruby_saml_settings)
     end
 
