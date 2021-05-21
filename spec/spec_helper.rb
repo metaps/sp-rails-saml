@@ -1,3 +1,5 @@
+require 'ostruct'
+require 'rexml/document'
 require "bundler/setup"
 require "sp-rails-saml"
 require "generator_spec"
