@@ -1,4 +1,6 @@
 module SpRailsSaml
+  # SAML2 settings for initializer.
+  #
   class Settings
     RUBY_SAML_DEFAULT_SETTINGS = {
       compress_request: false,
