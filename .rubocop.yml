@@ -1,0 +1,8 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'tmp/**/*'
+Style/FrozenStringLiteralComment:
+  Enabled: false
