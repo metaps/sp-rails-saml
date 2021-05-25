@@ -1,4 +1,6 @@
 module SpRailsSaml
+  # SAML2 Authentication.
+  #
   class Authnrequest
     def initialize(saml_setting)
       @saml_setting = saml_setting
@@ -13,6 +15,7 @@ module SpRailsSaml
 
     def ruby_saml_settings
       settings = OneLogin::RubySaml::Settings.new
+
       settings.assertion_consumer_service_url = SpRailsSaml::Settings.assertion_consumer_service_url
       settings.sp_entity_id                   = SpRailsSaml::Settings.sp_entity_id
       settings.name_identifier_format         = SpRailsSaml::Settings.name_identifier_format
