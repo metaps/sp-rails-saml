@@ -1,4 +1,6 @@
 module SpRailsSaml
+  # SAML2 Authentication Response.
+  #
   class SamlResponse
     def initialize(saml_response, saml_setting)
       @saml_setting = saml_setting
