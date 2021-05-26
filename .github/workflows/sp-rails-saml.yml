@@ -1,20 +1,31 @@
 name: sp-rails-saml
 
-on: pull_request
+on: [push]
 
 jobs:
-  test:
+  rubocop-test:
     runs-on: ubuntu-latest
-    container: ruby:2.6
-
+    name: Rubocop
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - name: Install Rubocop gem
+        run: gem install rubocop
+      - name: Specify config file
+        run: rubocop -c .rubocop.yml
+      - name: Run Rubocop
+        run: rubocop 
+  rspec-test:
+    runs-on: ubuntu-latest
+    name: Rspec
+    container: ruby:2.6
+    steps:
+      - uses: actions/checkout@v2
       - name: Setup
         run: gem install bundler
-
       - name: Install dependencies
         run: bundle install
-
       - name: Test
         run: bundle exec rake
