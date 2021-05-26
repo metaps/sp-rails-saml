@@ -13,6 +13,8 @@ jobs:
           ruby-version: 2.6
       - name: Install Rubocop gem
         run: gem install rubocop
+      - name: Specify config file
+        run: rubocop -c .rubocop.yml
       - name: Run Rubocop
         run: rubocop 
   rspec-test:
