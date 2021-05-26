@@ -6,6 +6,7 @@ gemspec
 gem 'rake', '~> 13.0'
 gem 'rspec', '~> 3.0'
 gem 'ruby-saml'
+gem 'rubocop-rails'
 
 group :test do
   gem 'generator_spec'
