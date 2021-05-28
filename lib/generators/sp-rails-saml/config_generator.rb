@@ -20,6 +20,8 @@ module SpRailsSaml
           config.authn_context = 'urn:oasis:names:tc:SAML:2.0:ac:classes:X509'
           config.authn_context_comparison = 'exact'
           config.assertion_consumer_service_url = ''
+          config.user_class = User
+          config.account_class = Account
         end
       RUBY
     end
