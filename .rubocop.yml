@@ -9,3 +9,7 @@ Metrics/LineLength:
 Metrics/AbcSize:
   Enabled: true
   Max: 20
+Documentation:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
