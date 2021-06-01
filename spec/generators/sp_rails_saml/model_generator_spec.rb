@@ -26,6 +26,7 @@ EOS
   let(:model_text) do
 <<-EOS
 class SamlSetting < ApplicationRecord
+  belongs_to :account
 end
 EOS
   end
