@@ -44,6 +44,6 @@ RSpec.describe SpRailsSaml::SpRailsSamlControllerGenerator, type: :generator do
   end
 
   it "should create sp_rails_saml_controller to app/controllers" do
-    assert_file "app/controllers/sp_rails_saml_controller", default_controller
+    assert_file "app/controllers/sp_rails_saml_controller.rb", default_controller
   end
 end
