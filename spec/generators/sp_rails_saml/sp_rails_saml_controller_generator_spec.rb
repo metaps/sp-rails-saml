@@ -6,7 +6,7 @@ RSpec.describe SpRailsSaml::SpRailsSamlControllerGenerator, type: :generator do
     run_generator
   end
 
-  let(:default_text) do
+  let(:default_controller) do
     <<~RUBY
       module SpRailsSaml
         # Controller to register saml by SP
@@ -44,6 +44,6 @@ RSpec.describe SpRailsSaml::SpRailsSamlControllerGenerator, type: :generator do
   end
 
   it "should create sp_rails_saml_controller to app/controllers" do
-    assert_file "app/controllers/sp_rails_saml_controller", default_text
+    assert_file "app/controllers/sp_rails_saml_controller", default_controller
   end
 end
