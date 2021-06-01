@@ -15,10 +15,10 @@ module SpRailsSaml
     def default_initializer
       <<~RUBY
         SpRailsSaml::Settings.setup do |config|
-          config.sp_entity_id = ''
-          config.name_identifier_format = 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
-          config.authn_context = 'urn:oasis:names:tc:SAML:2.0:ac:classes:X509'
-          config.authn_context_comparison = 'exact'
+          config.sp_entity_id                   = ''
+          config.name_identifier_format         = 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'
+          config.authn_context                  = 'urn:oasis:names:tc:SAML:2.0:ac:classes:X509'
+          config.authn_context_comparison       = 'exact'
           config.assertion_consumer_service_url = ''
         end
       RUBY
