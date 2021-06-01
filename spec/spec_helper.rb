@@ -1,6 +1,10 @@
+require 'ostruct'
+require 'rexml/document'
 require "bundler/setup"
-require "sp-rails-saml"
+require "sp_rails_saml"
 require "generator_spec"
+
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

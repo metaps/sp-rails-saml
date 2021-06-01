@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" xmlns:ext="urn:oasis:names:tc:SAML:attributes:ext" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="_d12165563e4eb81fb36cd6da13bf48700648c66a" Version="2.0" IssueInstant="2021-05-21T09:30:02Z" Destination="https://example.com/acs"><saml:Issuer>http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA</saml:Issuer><samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/></samlp:Status><saml:Assertion ID="_ef15fb7ba4a142457f1d047e7fc66d80184a9891" Version="2.0" IssueInstant="2021-05-21T09:30:02Z"><saml:Issuer>http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA</saml:Issuer><ds:Signature><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#_ef15fb7ba4a142457f1d047e7fc66d80184a9891"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces PrefixList="ds saml samlp xs"/></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>VzCbNSpQ/1iWYTsFTlWMbB9xx+ttOuIuEOpiBBOlc9I=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>HzmAJ2vPPjUHSXJczYb6Tnjx2iVwcmYc0TdyrSeoXYbMx17XEzzFRnSx03nZEsc+xbHmN++Mal7CwwvlFkSp9js3ubFRtLP70cJ7zNaQA83gfhHPu5roFRHqGoyKFvkJVIWnjnYrL/fvOUNC0osFNll85a6geoJGvTrNK9i+LEQtkATuO5/NqrtqPLqFzJc3veC74ChreMXd/1FBZO8w6nfo74yPDk9taJ/QFYRQikZd4PhMtx0PtArsVmpoYZWjJ5Drcdyq1ELshWRQrVXgsY/iGwo8CAhTumWB89SnuraUR23B4vD4wiapsoQzzun6hXiTXgRo4nDrPlUXvM/v3A==</ds:SignatureValue><ds:KeyInfo><ds:KeyName>cc1568bb371d6ff9c99d588a489d27df6c4cae72</ds:KeyName><ds:X509Data><ds:X509Certificate>MIIDVjCCAj6gAwIBAgIBATANBgkqhkiG9w0BAQsFADA8MRQwEgYDVQQKDAtt
+ZXRhcHMgSW5jLjETMBEGA1UECwwKbWNsb3VkIElkcDEPMA0GA1UEAwwGbWNs
+b3VkMB4XDTIxMDUyMTA1MjQyMVoXDTI2MDUyMDA1MjQyMVowPDEUMBIGA1UE
+CgwLbWV0YXBzIEluYy4xEzARBgNVBAsMCm1jbG91ZCBJZHAxDzANBgNVBAMM
+Bm1jbG91ZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOldNOBs
+T8bmI3CqSIy3E76+6o4jFBSjRlU4DXLKKLUvTdqAl82FBCZFlSKOn6zNmihK
+pRwn0loHED+2Trla5zLN++vgRm5WsMkQBUqv/uq20EB0LG4cosMYseDABUrA
+y6PF+RkNlLDDViw7/POFgQgtRomNm6Yn3nUEmh6QHlX25A83nvUwUzV5R76j
+Ve6elRXviB/U7WkzZHJVeLUTaxFMK/u0xL7eE/Fu/hXM115Jhx6wMyWg10Ih
+nwYGJwExK8FfWlLNtvkGK8wfVjUcHC6N0rXMWUxTEKtor9+d48Q8IhW2QJYI
+jWsDlFjQc9EHurWeaT02eoYeCKPMXFovm80CAwEAAaNjMGEwDwYDVR0TAQH/
+BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYwHQYDVR0OBBYEFJp32suFwe3KUkxJ
+Q6PL6eTTCqm0MB8GA1UdIwQYMBaAFJp32suFwe3KUkxJQ6PL6eTTCqm0MA0G
+CSqGSIb3DQEBCwUAA4IBAQBBvnn6f4pUKdzo3AqnrOSam315n4efdMwKPM3Y
+sRogffeCJL1a9MDBaQ2FLTimjT/bJS7B9cfpBfoIG/ix/AQMRGoy8imUrFno
+xCHhIWSWy80XAxQkGqErI59xzgqUTU3rNurq7WCazq9IyCQ3VJrg55v6UDfN
+kTag+nEEPbRSpHjJgZKdAKISihIdwkwSwvXFVTNDnScO++wgy4VuAJGL3ouA
+bQvx2iF/ge8uNqEP7Zz3GtN6o6Uy8Hfrxi7rla10ZxQ3HGJTQ0ixHA1DOQ9I
+Hg3rQQzUR1dyCpfhfjsZ1T4aqhXbwLq5/FW8Tl38BU0d8V3Eu0WWeY+DbUdg
+5rUF
+</ds:X509Certificate></ds:X509Data></ds:KeyInfo></ds:Signature><saml:Subject><saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">test@example.com</saml:NameID><saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"><saml:SubjectConfirmationData NotOnOrAfter="2021-05-21T09:32:02Z" Recipient="https://example.com/acs"/></saml:SubjectConfirmation></saml:Subject><saml:Conditions NotBefore="2021-05-21T09:28:02Z" NotOnOrAfter="2021-05-21T09:32:02Z"><saml:AudienceRestriction><saml:Audience>https://example.com/sp</saml:Audience></saml:AudienceRestriction></saml:Conditions><saml:AuthnStatement AuthnInstant="2021-05-21T09:30:02Z"><saml:AuthnContext><saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef></saml:AuthnContext></saml:AuthnStatement><saml:AttributeStatement><saml:Attribute Name="User.Email"><saml:AttributeValue>test@example.com</saml:AttributeValue></saml:Attribute></saml:AttributeStatement></saml:Assertion></samlp:Response>
