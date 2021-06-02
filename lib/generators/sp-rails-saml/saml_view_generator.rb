@@ -4,7 +4,7 @@ module SpRailsSaml
   # Controller file Generator.
   #
   class SamlViewGenerator < Rails::Generators::Base
-    desc 'Generate new.html.erb to app/views'
+    desc 'Generate new.html.erb to app/views/saml'
 
     source_root File.expand_path('../templates', __dir__)
 
