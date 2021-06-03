@@ -13,7 +13,9 @@ module SpRailsSaml
                     :name_identifier_format,
                     :authn_context,
                     :authn_context_comparison,
-                    :assertion_consumer_service_url
+                    :assertion_consumer_service_url,
+                    :user_class,
+                    :account_class
 
       def setup(options = {})
         options.each do |key, value|
