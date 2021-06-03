@@ -13,4 +13,3 @@ module SpRailsSaml
     end
   end
 end
-
