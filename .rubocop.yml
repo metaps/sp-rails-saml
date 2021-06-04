@@ -6,11 +6,14 @@ AllCops:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
-  Max: 120
+  Max: 160
 Metrics/AbcSize:
-  Enabled: true
-  Max: 20
+  Enabled: false
 Documentation:
   Enabled: false
 Naming/FileName:
   Enabled: false
+Style/AsciiComments:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
