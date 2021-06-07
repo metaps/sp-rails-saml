@@ -10,4 +10,3 @@ RSpec.describe SpRailsSaml::SamlViewGenerator, type: :generator do
     assert_file "app/views/saml/new.html.erb", file_fixture('views/saml/new.html.erb')
   end
 end
-
