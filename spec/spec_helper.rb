@@ -1,7 +1,7 @@
 require 'ostruct'
 require 'rexml/document'
 require "bundler/setup"
-require "sp_rails_saml"
+require "sp-rails-saml"
 require "generator_spec"
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].sort.each { |f| require f }

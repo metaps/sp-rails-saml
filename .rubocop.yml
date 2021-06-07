@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'spec/**/*'
     - 'tmp/**/*'
+    - 'lib/generators/sp-rails-saml/templates/**/*'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
@@ -9,3 +10,7 @@ Metrics/LineLength:
 Metrics/AbcSize:
   Enabled: true
   Max: 20
+Documentation:
+  Enabled: false
+Naming/FileName:
+  Enabled: false
