@@ -4,7 +4,7 @@ namespace :saml do
   post 'sign_in', to: 'sessions#create'
 
   # Saml settings for SP
-  get 'saml_setting', to: 'saml_setting#show'
-  get 'saml_setting', to: 'saml_setting#edit'
-  patch 'saml_setting', to: 'saml_setting#edit'
+  get 'saml_settings', to: 'saml_settings#show'
+  get 'saml_settings', to: 'saml_settings#edit'
+  put 'saml_settings', to: 'saml_settings#edit'
 end
