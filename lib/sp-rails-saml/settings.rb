@@ -3,17 +3,16 @@ module SpRailsSaml
   #
   class Settings
     RUBY_SAML_DEFAULT_SETTINGS = {
-      compress_request: false,
+      compress_request: true,
       skip_subject_confirmation: true,
-      skip_conditions: true
+      skip_conditions: true,
+      want_assertions_signed: true
     }.freeze
 
     class << self
-      attr_accessor :sp_entity_id,
-                    :name_identifier_format,
+      attr_accessor :name_identifier_format,
                     :authn_context,
                     :authn_context_comparison,
-                    :assertion_consumer_service_url,
                     :user_class,
                     :account_class
 

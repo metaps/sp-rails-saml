@@ -8,5 +8,6 @@ RSpec.describe SpRailsSaml::ControllersGenerator, type: :generator do
 
   it "should create saml_settings initializer file" do
     assert_file "app/controllers/saml/sessions_controller.rb", file_fixture('controllers/sessions_controller.rb')
+    assert_file "app/controllers/saml/ssos_controller.rb", file_fixture('controllers/ssos_controller.rb')
   end
 end
