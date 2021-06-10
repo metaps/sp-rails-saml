@@ -10,6 +10,8 @@ RSpec.describe SpRailsSaml::Authnrequest do
     let!(:authnrequest) { SpRailsSaml::Authnrequest.new(saml_setting) }
 
     before do
+      SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
+
       allow(authnrequest).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
       allow(authnrequest).to receive(:saml_metadata_url).and_return(sp_entity_id)
 
