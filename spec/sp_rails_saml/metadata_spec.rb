@@ -9,6 +9,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
   let(:metadata) { SpRailsSaml::Metadata.new(account: saml_setting.account) }
 
   before do
+    SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
+
     allow(metadata).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
     allow(metadata).to receive(:saml_metadata_url).and_return(sp_entity_id)
 

@@ -7,6 +7,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
   let(:assertion_consumer_service_url) { 'https://example.com/acs' }
 
   before do
+    SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
+
     SpRailsSaml::Settings.setup do |config|
       config.name_identifier_format = name_identifier_format
       config.authn_context = authn_context
