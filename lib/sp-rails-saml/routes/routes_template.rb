@@ -6,5 +6,5 @@ namespace :saml do
   # Saml settings for SP
   get 'saml_settings', to: 'saml_settings#show'
   get 'saml_settings', to: 'saml_settings#edit'
-  put 'saml_settings', to: 'saml_settings#edit'
+  patch 'saml_settings', to: 'saml_settings#edit'
 end

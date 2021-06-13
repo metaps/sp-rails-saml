@@ -19,4 +19,5 @@ end
 module Saml
   autoload :SessionsController, File.expand_path('../app/controllers/saml/sessions_controller', __dir__)
   autoload :SessionsBaseController, File.expand_path('../app/controllers/saml/sessions_base_controller', __dir__)
+  autoload :SamlSettingsController, File.expand_path('../app/controllers/saml/saml_settings_controller', __dir__)
 end
