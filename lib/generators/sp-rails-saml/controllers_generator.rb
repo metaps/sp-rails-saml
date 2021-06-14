@@ -8,6 +8,7 @@ module SpRailsSaml
 
     def create_session_controller
       copy_file 'controllers/sessions_controller.rb', 'app/controllers/saml/sessions_controller.rb'
+      copy_file 'controllers/ssos_controller.rb', 'app/controllers/saml/ssos_controller.rb'
     end
 
     def create_saml_setting_controller
