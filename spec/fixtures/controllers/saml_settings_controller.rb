@@ -9,13 +9,6 @@ module SpRailsSaml
       @saml_setting = account.saml_setting
     end
 
-    # GET /saml_settings/edit
-    #
-    def edit
-      account = Account.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
-    end
-
     # PATCH /saml_settings
     #
     def update
