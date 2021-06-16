@@ -8,27 +8,27 @@ RSpec.describe SpRailsSaml::ModelGenerator, type: :generator do
   end
 
   let(:migration_text) do
-<<-EOS
-class CreateSamlSettings < ActiveRecord::Migration[6.1]
-  def change
-    create_table :saml_settings, comment: 'Saml settings table for sp' do |t|
-      t.references :account, foreign_key: true, null: false, comment: 'For company account model'
-      t.string :idp_sso_url, comment: 'URL for Idp SSO'
-      t.text   :idp_cert, comment: 'X.509 Certification of Idp'
-      t.string :idp_entity_id, comment: 'Entity ID of Idp'
-      t.timestamps
-    end
-  end
-end
-EOS
+    <<~RUBY
+      class CreateSamlSettings < ActiveRecord::Migration[6.1]
+        def change
+          create_table :saml_settings, comment: 'Saml settings table for sp' do |t|
+            t.references :account, foreign_key: true, null: false, comment: 'For company account model'
+            t.string :idp_sso_url, comment: 'URL for Idp SSO'
+            t.text   :idp_cert, comment: 'X.509 Certification of Idp'
+            t.string :idp_entity_id, comment: 'Entity ID of Idp'
+            t.timestamps
+          end
+        end
+      end
+    RUBY
   end
 
   let(:model_text) do
-<<-EOS
-class SamlSetting < ApplicationRecord
-  belongs_to :account
-end
-EOS
+    <<~RUBY
+      class SamlSetting < ApplicationRecord
+        belongs_to :account
+      end
+    RUBY
   end
 
   it 'should create saml_settings migration file' do
