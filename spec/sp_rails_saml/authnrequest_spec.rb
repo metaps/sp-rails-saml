@@ -24,7 +24,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create sso_url with saml request' do
-      expect(authnrequest.to_url).to match(/^https:\/\/example\.com\?SAMLRequest=/)
+      expect(authnrequest.to_url).to match(%r{^https://example\.com\?SAMLRequest=})
     end
 
     it 'should create Authnrequest tag' do
