@@ -8,7 +8,7 @@ RSpec.describe SpRailsSaml::ModelGenerator, type: :generator do
   end
 
   it 'should create saml_settings migration file' do
-    assert_migration 'db/migrate/create_saml_settings', file_fixture('migrate/create_saml_settings.rb')
+    assert_migration 'db/migrate/create_saml_settings', file_fixture('migrations/create_saml_settings.rb')
   end
 
   it 'should create saml_settings model file' do
