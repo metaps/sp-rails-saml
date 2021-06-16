@@ -1,8 +1,6 @@
 AllCops:
   Exclude:
-    - 'spec/**/*'
     - 'tmp/**/*'
-    - 'lib/generators/sp-rails-saml/templates/**/*'
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
