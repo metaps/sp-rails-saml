@@ -23,19 +23,11 @@ RSpec.describe SpRailsSaml::ModelGenerator, type: :generator do
     RUBY
   end
 
-  let(:model_text) do
-    <<~RUBY
-      class SamlSetting < ApplicationRecord
-        belongs_to :account
-      end
-    RUBY
-  end
-
   it 'should create saml_settings migration file' do
     assert_migration 'db/migrate/create_saml_settings', migration_text
   end
 
   it 'should create saml_settings model file' do
-    assert_file 'app/models/saml_setting.rb', model_text
+    assert_file 'app/models/saml_setting.rb', file_fixture('models/saml_setting.rb')
   end
 end
