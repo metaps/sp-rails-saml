@@ -18,13 +18,13 @@ RSpec.describe SpRailsSaml::SamlResponse do
   end
 
   describe '#valid?' do
-    let(:saml_setting) {
+    let(:saml_setting) do
       OpenStruct.new(
         idp_entity_id: 'http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA',
         idp_cert: file_fixture('certificate'),
         account: OpenStruct.new(id: 1)
       )
-    }
+    end
 
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
 
@@ -87,13 +87,13 @@ RSpec.describe SpRailsSaml::SamlResponse do
   end
 
   describe '#name_id' do
-    let(:saml_setting) {
+    let(:saml_setting) do
       OpenStruct.new(
         idp_entity_id: 'http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA',
         idp_cert: file_fixture('certificate'),
         account: OpenStruct.new(id: 1)
       )
-    }
+    end
 
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
 
@@ -108,13 +108,13 @@ RSpec.describe SpRailsSaml::SamlResponse do
   end
 
   describe '#name_identifier_format' do
-    let(:saml_setting) {
+    let(:saml_setting) do
       OpenStruct.new(
         idp_entity_id: 'http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA',
         idp_cert: file_fixture('certificate'),
         account: OpenStruct.new(id: 1)
       )
-    }
+    end
 
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
 
@@ -129,16 +129,15 @@ RSpec.describe SpRailsSaml::SamlResponse do
   end
 
   describe '#errors' do
-    let(:saml_setting) {
+    let(:saml_setting) do
       OpenStruct.new(
         idp_entity_id: 'http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA',
         idp_cert: file_fixture('certificate'),
         account: OpenStruct.new(id: 1)
       )
-    }
+    end
 
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
-
 
     context 'when sp_entity_id is not equal issuer' do
       before do
