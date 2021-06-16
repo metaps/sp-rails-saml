@@ -1,5 +1,5 @@
 RSpec.describe SpRailsSaml::ModelGenerator, type: :generator do
-  destination File.expand_path("../../../../tmp", __FILE__)
+  destination File.expand_path('../../../../tmp', __FILE__)
   arguments %w(account)
 
   before(:all) do
@@ -31,11 +31,11 @@ end
 EOS
   end
 
-  it "should create saml_settings migration file" do
-    assert_migration "db/migrate/create_saml_settings", migration_text
+  it 'should create saml_settings migration file' do
+    assert_migration 'db/migrate/create_saml_settings', migration_text
   end
 
-  it "should create saml_settings model file" do
-    assert_file "app/models/saml_setting.rb", model_text
+  it 'should create saml_settings model file' do
+    assert_file 'app/models/saml_setting.rb', model_text
   end
 end
