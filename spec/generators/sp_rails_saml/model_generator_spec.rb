@@ -1,5 +1,5 @@
 RSpec.describe SpRailsSaml::ModelGenerator, type: :generator do
-  destination File.expand_path('../../../../tmp', __FILE__)
+  destination File.expand_path('../../../tmp', __dir__)
   arguments %w(account)
 
   before(:all) do
