@@ -1,32 +1,20 @@
-module SpRailsSaml
+module Saml
   # Controller to register saml by SP
   #
-  class SamlSettingsController < ApplicationController
+  class SamlSettingsController < SamlSettingsBaseController
     # GET /saml_settings
-    #
-    def show
-      account = Account.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
-    end
+    # def show
+    #   super
+    # end
 
-    # GET /saml_settings/edit
-    #
-    def edit
-      account = Account.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
-    end
+    # GET /saml_settings/:id/edit
+    # def edit
+    #   super
+    # end
 
-    # PATCH /saml_settings
-    #
-    def update
-      account = Account.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
-
-      if @saml_setting.update(saml_setting_params)
-        redirect_to saml_setting_path
-      else
-        render :edit
-      end
-    end
+    # PATCH /saml_settings/:id
+    # def update
+    #   super
+    # end
   end
 end

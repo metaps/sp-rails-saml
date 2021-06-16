@@ -1,7 +1,7 @@
-module SpRailsSaml
+module Saml
   # Controller to register saml by SP
   #
-  class SamlSettingsController < ApplicationController
+  class SamlSettingsController < SamlSettingsBaseController
     # GET /saml_settings
     # def show
     #   super
