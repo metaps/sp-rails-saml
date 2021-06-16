@@ -1,5 +1,5 @@
 RSpec.describe SpRailsSaml::ConfigGenerator, type: :generator do
-  destination File.expand_path("../../../../tmp", __FILE__)
+  destination File.expand_path('../../../../tmp', __FILE__)
 
   before(:all) do
     prepare_destination
@@ -18,7 +18,7 @@ end
 EOS
   end
 
-  it "should create saml_settings initializer file" do
-    assert_file "config/initializers/sp-rails-saml.rb", initializer_text
+  it 'should create saml_settings initializer file' do
+    assert_file 'config/initializers/sp-rails-saml.rb', initializer_text
   end
 end
