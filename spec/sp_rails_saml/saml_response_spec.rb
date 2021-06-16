@@ -1,5 +1,5 @@
 RSpec.describe SpRailsSaml::SamlResponse do
-  let!(:saml_response_base64_str) { file_fixture("saml_response.xml.base64") }
+  let!(:saml_response_base64_str) { file_fixture('saml_response.xml.base64') }
   let(:sp_entity_id) { 'https://example.com/sp' }
   let(:name_identifier_format) { 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
   let(:authn_context) { 'urn:oasis:names:tc:SAML:2.0:ac:classes:X509' }
@@ -128,7 +128,7 @@ RSpec.describe SpRailsSaml::SamlResponse do
     end
   end
 
-  describe "#errors" do
+  describe '#errors' do
     let(:saml_setting) {
       OpenStruct.new(
         idp_entity_id: 'http://localhost:3000/saml/metadata/kti85Q2miJBbOnvxBIEgYA',
