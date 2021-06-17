@@ -1,9 +1,9 @@
-<%= form_with url: saml_setting_path do |f| %>
+<%= form_with model: @saml_setting, url: saml_saml_setting_path, method: :patch do |f| %>
   <%= f.label :idp_sso_url %>
   <%= f.text_field :idp_sso_url %>
-  <%= f.label :idp_cert %>
-  <%= f.text_field :idp_cert %>
   <%= f.label :idp_entity_id %>
   <%= f.text_field :idp_entity_id %>
+  <%= f.label :idp_cert %>
+  <%= f.text_field :idp_cert %>
   <%= f.submit %>
 <% end %>

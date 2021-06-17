@@ -2,17 +2,17 @@ module Saml
   # Controller to register saml by SP
   #
   class SamlSettingsController < SamlSettingsBaseController
-    # GET /saml_settings
+    # GET /saml/account/:account_id/saml_settings/
     # def show
     #   super
     # end
 
-    # GET /saml_settings/:id/edit
+    # GET /saml/account/:account_id/saml_settings/edit
     # def edit
     #   super
     # end
 
-    # PATCH /saml_settings/:id
+    # PATCH /saml/account/:account_id/saml_settings
     # def update
     #   super
     # end

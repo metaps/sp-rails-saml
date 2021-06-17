@@ -11,7 +11,8 @@ module SpRailsSaml
     end
 
     def create_saml_setting_view
-      copy_file 'views/saml/new.html.erb', 'app/views/saml/new.html.erb'
+      copy_file 'views/saml/edit.html.erb', 'app/views/saml/saml_settings/edit.html.erb'
+      copy_file 'views/saml/show.html.erb', 'app/views/saml/saml_settings/show.html.erb'
     end
   end
 end

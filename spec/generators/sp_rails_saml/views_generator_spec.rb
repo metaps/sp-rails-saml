@@ -8,6 +8,7 @@ RSpec.describe SpRailsSaml::ViewsGenerator, type: :generator do
 
   it "should create views" do
     assert_file "app/views/saml/sessions/new.html.erb", file_fixture('views/sessions/new.html.erb')
-    assert_file "app/views/saml/new.html.erb", file_fixture('views/saml/new.html.erb')
+    assert_file "app/views/saml/saml_settings/show.html.erb", file_fixture('views/saml/show.html.erb')
+    assert_file "app/views/saml/saml_settings/edit.html.erb", file_fixture('views/saml/edit.html.erb')
   end
 end
