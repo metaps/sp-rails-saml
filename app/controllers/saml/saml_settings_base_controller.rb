@@ -6,23 +6,25 @@ module Saml
     #
     def show
       account = SpRailsSaml::Settings.account_class.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
+      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
     end
 
     # GET /saml/account/:account_id/saml_settings/edit
     #
     def edit
       account = SpRailsSaml::Settings.account_class.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
+      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
     end
 
     # PATCH /saml/account/:account_id/saml_settings
     #
     def update
       account = SpRailsSaml::Settings.account_class.find_by(id: params[:account_id])
-      @saml_setting = account.saml_setting
+      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
 
-      if @saml_setting.update(saml_setting_params)
+      @saml_setting.assign_attributes(saml_setting_params)
+
+      if @saml_setting.save
         redirect_to saml_account_saml_settings_path
       else
         render :edit
@@ -32,7 +34,7 @@ module Saml
     private
     
     def saml_setting_params
-      params.require(:saml_setting).permit(:idp_entity_id, :idp_sso_url, :idp_cert)
+      params.require(:saml_setting).permit(:idp_entity_id, :idp_sso_url, :idp_cert, :login_type)
     end
   end
 end

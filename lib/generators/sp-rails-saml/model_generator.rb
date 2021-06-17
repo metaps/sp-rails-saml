@@ -15,6 +15,8 @@ module SpRailsSaml
       create_file 'app/models/saml_setting.rb', <<~FILE
         class SamlSetting < ApplicationRecord
           belongs_to :#{table_name.singularize}
+
+          enum login_type: { password_only: 0, saml_only: 1, saml_and_password: 2 }
         end
       FILE
     end
