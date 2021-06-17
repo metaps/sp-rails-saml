@@ -8,7 +8,7 @@ module SpRailsSaml
     source_root File.expand_path('templates', __dir__)
 
     def create_initializer_file
-      migration_template 'create_saml_settings.rb', 'db/migrate/create_saml_settings.rb'
+      migration_template 'migrations/create_saml_settings.rb', 'db/migrate/create_saml_settings.rb'
     end
 
     def copy_model

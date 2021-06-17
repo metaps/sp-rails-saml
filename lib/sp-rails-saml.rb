@@ -5,6 +5,7 @@ require 'generators/sp-rails-saml/config_generator'
 require 'generators/sp-rails-saml/controllers_generator'
 require 'generators/sp-rails-saml/views_generator'
 require 'generators/sp-rails-saml/model_generator'
+require 'generators/sp-rails-saml/install_generator'
 
 autoload :SamlBaseController, File.expand_path('../app/controllers/saml_base_controller', __dir__)
 
