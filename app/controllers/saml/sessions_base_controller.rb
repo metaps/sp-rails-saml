@@ -10,13 +10,12 @@ module Saml
       user = SpRailsSaml::Settings.user_class.find_by(email: params[:email])
       account = user.send(SpRailsSaml::Settings.account_class.to_s.downcase.to_sym)
 
-      raise SamlLoginForbidden if account.saml_setting.password_only?
+      raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
 
       if user.blank?
         redirect_to saml_sign_in_path, alert: 'failed to login'
         return
       end
-
 
       authnrequest = SpRailsSaml::Authnrequest.new(account.saml_setting).to_url
       redirect_to(authnrequest)

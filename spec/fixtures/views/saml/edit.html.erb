@@ -6,6 +6,6 @@
   <%= f.label :idp_cert %>
   <%= f.text_field :idp_cert %>
   <%= f.label :login_type %>
-  <%= f.select :login_type, SamlSetting.login_types.to_a %>
+  <%= f.select :login_type, SamlSetting.login_types.keys.to_a %>
   <%= f.submit %>
 <% end %>

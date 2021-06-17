@@ -3,9 +3,11 @@ namespace :saml do
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
 
-  # Saml settings for SP
-  resources SpRailsSaml::Settings.account_class.to_s.downcase.to_sym, only: [] do
-    resource :saml_settings, only: [:show, :edit, :update]
+  unless @sso_only
+    # Saml settings for SP
+    resources SpRailsSaml::Settings.account_class.to_s.downcase.to_sym, only: [] do
+      resource :saml_settings, only: %i[show edit update]
+    end
   end
 
   # SSO

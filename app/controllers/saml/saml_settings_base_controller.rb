@@ -32,7 +32,7 @@ module Saml
     end
 
     private
-    
+
     def saml_setting_params
       params.require(:saml_setting).permit(:idp_entity_id, :idp_sso_url, :idp_cert, :login_type)
     end
