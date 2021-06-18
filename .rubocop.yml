@@ -3,7 +3,7 @@ AllCops:
     - 'tmp/**/*'
 Style/FrozenStringLiteralComment:
   Enabled: false
-Metrics/LineLength:
+Layout/LineLength:
   Max: 170
 Metrics/AbcSize:
   Enabled: false
