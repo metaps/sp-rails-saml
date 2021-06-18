@@ -7,6 +7,9 @@ module Saml
     # POST /saml/metadata/:id
     def consume
       account = SpRailsSaml::Settings.account_class.find(params[:id])
+
+      raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
+
       saml_setting = account.saml_setting
       saml_response = SpRailsSaml::SamlResponse.new(params[:SAMLResponse], saml_setting)
 
