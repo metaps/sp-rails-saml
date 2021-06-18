@@ -21,3 +21,6 @@ Metrics/BlockLength:
 Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*'
+Style/ClassVars:
+  Exclude:
+    - 'spec/**/*'
