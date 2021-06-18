@@ -1,23 +1,19 @@
 module Saml
   # Controller to register saml by SP
-  #
   class SamlSettingsBaseController < SamlBaseController
-    # GET /saml/account/:account_id/saml_settings/
-    #
+    # GET /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings
     def show
       account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
       @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
     end
 
-    # GET /saml/account/:account_id/saml_settings/edit
-    #
+    # GET /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings/edit
     def edit
       account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
       @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
     end
 
-    # PATCH /saml/account/:account_id/saml_settings
-    #
+    # PATCH /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings
     def update
       account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
       @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
