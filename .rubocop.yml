@@ -24,3 +24,6 @@ Style/BlockDelimiters:
 Style/ClassVars:
   Exclude:
     - 'spec/**/*'
+Lint/Syntax:
+  Exclude:
+    - 'spec/**/*'
