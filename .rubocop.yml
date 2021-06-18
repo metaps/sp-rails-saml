@@ -1,12 +1,12 @@
 AllCops:
   Exclude:
-    - 'spec/**/*'
     - 'tmp/**/*'
-    - 'lib/generators/sp-rails-saml/templates/**/*'
+    # For  to avoid Lint/Syntax error on ruby embedded code.
+    - 'lib/generators/sp-rails-saml/templates/create_saml_settings.rb'
 Style/FrozenStringLiteralComment:
   Enabled: false
-Metrics/LineLength:
-  Max: 160
+Layout/LineLength:
+  Max: 170
 Metrics/AbcSize:
   Enabled: false
 Documentation:
@@ -17,3 +17,12 @@ Style/AsciiComments:
   Enabled: false
 Metrics/MethodLength:
   Max: 20
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+Style/ClassVars:
+  Exclude:
+    - 'spec/**/*'

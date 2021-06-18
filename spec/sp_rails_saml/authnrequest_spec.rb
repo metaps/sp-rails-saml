@@ -24,12 +24,12 @@ RSpec.describe SpRailsSaml::Authnrequest do
     end
 
     it 'should create sso_url with saml request' do
-      expect(authnrequest.to_url).to match(/^https:\/\/example\.com\?SAMLRequest=/)
+      expect(authnrequest.to_url).to match(%r{^https://example\.com\?SAMLRequest=})
     end
 
     it 'should create Authnrequest tag' do
       sso_url = authnrequest.to_url
-      saml_request = CGI.unescape(sso_url.split("=").last)
+      saml_request = CGI.unescape(sso_url.split('=').last)
 
       decoded_saml_request = Base64.decode64(saml_request)
 
@@ -46,7 +46,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
 
     it 'should create Issuer tag' do
       sso_url = authnrequest.to_url
-      saml_request = CGI.unescape(sso_url.split("=").last)
+      saml_request = CGI.unescape(sso_url.split('=').last)
 
       decoded_saml_request = Base64.decode64(saml_request)
 
@@ -62,7 +62,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
 
     it 'should create RequestAuthnContext tag' do
       sso_url = authnrequest.to_url
-      saml_request = CGI.unescape(sso_url.split("=").last)
+      saml_request = CGI.unescape(sso_url.split('=').last)
 
       decoded_saml_request = Base64.decode64(saml_request)
 
@@ -79,7 +79,7 @@ RSpec.describe SpRailsSaml::Authnrequest do
 
     it 'should create NameIDPolicy tag' do
       sso_url = authnrequest.to_url
-      saml_request = CGI.unescape(sso_url.split("=").last)
+      saml_request = CGI.unescape(sso_url.split('=').last)
 
       decoded_saml_request = Base64.decode64(saml_request)
 

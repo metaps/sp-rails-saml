@@ -1,9 +1,10 @@
 require 'pry'
 
-RSpec.describe SpRailsSaml::Settings do
-  class User; end
-  class Account; end
+class User; end
 
+class Account; end
+
+RSpec.describe SpRailsSaml::Settings do
   describe '#setup' do
     let(:sp_entity_id) { 'sp_entity_id' }
     let(:name_identifier_format) { 'name_identifier_format' }
