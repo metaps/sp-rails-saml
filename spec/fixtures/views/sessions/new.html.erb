@@ -1,6 +1,6 @@
 <strong style='color: red;'><%= flash[:alert] %></strong>
 
-<%= form_with url: saml_sign_in_path do |f| %>
+<%= form_with url: saml_sign_in_path, local: true do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
 
