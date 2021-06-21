@@ -21,7 +21,7 @@ module Saml
       @saml_setting.assign_attributes(saml_setting_params)
 
       if @saml_setting.save
-        redirect_to saml_account_saml_settings_path
+        redirect_to action: :show
       else
         render :edit
       end

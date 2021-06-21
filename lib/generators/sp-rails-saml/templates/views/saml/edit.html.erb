@@ -1,4 +1,4 @@
-<%= form_with model: @saml_setting, url: saml_account_saml_settings_path, method: :patch do |f| %>
+<%= form_with model: @saml_setting, url: saml_account_saml_settings_path, method: :patch, local: true do |f| %>
   <%= f.label :idp_sso_url %>
   <%= f.text_field :idp_sso_url %>
   <%= f.label :idp_entity_id %>
