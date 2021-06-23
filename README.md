@@ -36,6 +36,11 @@ $ rails g sp_rails_saml:install {reference_table_name}
 At this point, you need to write your account table name in `reference_table_name`.
 This will generate the saml templates for controller, view, initializer, etc.
 
+**Controller**
+- [app/controllers/saml/sessions_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/sessions_controller.rb)
+- [app/controllers/saml/ssos_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/sessions_controller.rb)
+- [app/controllers/saml/saml_settings_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/saml_settings_controller.rb)
+
 ### 2. Add routing
 
 You need to add the following line to your `config/routes.rb`:
