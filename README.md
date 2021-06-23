@@ -46,6 +46,12 @@ This will generate the saml templates for controller, view, initializer, etc.
 - [app/views/saml/saml_settings/show.html.erb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/views/saml/show.html.erb)
 - [app/views/saml/saml_settings/edit.html.erb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/views/saml/edit.html.erb)
 
+**Model**
+- [app/models/saml_setting.rb](https://github.com/metaps/sp-rails-saml/blob/develop/spec/fixtures/models/saml_setting.rb)
+
+**Migration**
+- [db/migrate/create_saml_settings](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/migrations/create_saml_settings.rb)
+
 ### 2. Add routing
 
 You need to add the following line to your `config/routes.rb`:
