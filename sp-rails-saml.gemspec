@@ -5,7 +5,7 @@ require 'sp-rails-saml/version'
 Gem::Specification.new do |spec|
   spec.name          = 'sp-rails-saml'
   spec.version       = SpRailsSaml::VERSION
-  spec.authors       = ['psyashes', 'sibakeny']
+  spec.authors       = %w[psyashes sibakeny]
   spec.email         = ['43512814+psyashes@users.noreply.github.com']
 
   spec.summary       = 'Simple sp saml for rails.'
