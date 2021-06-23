@@ -9,6 +9,12 @@
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+<p align="center">
+  <img alt="Gem version" src="https://img.shields.io/gem/v/sp-rails-saml">
+  <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg">
+  <img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-orange.svg">
+</p>
+
 # sp-rails-saml
 
 sp-rails-saml is to be make onelogin ruby-saml easier to use in Ruby on Rails.
