@@ -11,7 +11,7 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
 
-# sp-rails-saml
+# Introduction
 
 sp-rails-saml is to be make onelogin ruby-saml easier to use in Ruby on Rails.
 
