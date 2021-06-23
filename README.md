@@ -13,6 +13,7 @@
   <img alt="Gem version" src="https://img.shields.io/gem/v/sp-rails-saml">
   <img alt="Dependencies" src="https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg">
   <img alt="Contributions welcome" src="https://img.shields.io/badge/contributions-welcome-orange.svg">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
 
 # sp-rails-saml
