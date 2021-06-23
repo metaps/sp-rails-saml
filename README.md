@@ -3,12 +3,11 @@
   <img width=60% src="https://github.com/metaps/sp-rails-saml/blob/feature/Update_readme/media/logo.png"></p>
 </h1>
 
-<p align="center">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
-  ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Gem Version](https://img.shields.io/gem/v/2.5.0)
+![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 # sp-rails-saml
 
