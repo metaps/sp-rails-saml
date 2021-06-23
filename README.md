@@ -1,3 +1,5 @@
+<p align="center"><img width=60% src="https://github.com/metaps/sp-rails-saml/blob/feature/Update_readme/media/logo.png"></p>
+
 # sp-rails-saml
 
 sp-rails-saml is to be make onelogin ruby-saml easier to use in Ruby on Rails.
