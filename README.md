@@ -4,7 +4,8 @@ sp-rails-saml is to be make onelogin ruby-saml easier to use in Ruby on Rails.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+sp-rails-saml works with Rails 6.1 onwards.
+Add the following line to your Gemfile:
 
 ```ruby
 gem 'sp-rails-saml'
@@ -12,32 +13,30 @@ gem 'sp-rails-saml'
 
 And then execute:
 
-    $ bundle install
+```
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install sp-rails-saml
+```
+$ gem install sp-rails-saml
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### 1. Generate saml templates
 
-## Development
+You need to run the generator:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+$ rails g sp_rails_saml:install {reference_table_name}
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/sp-rails-saml. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/sp-rails-saml/blob/master/CODE_OF_CONDUCT.md).
-
+At this point, you need to write your account table name in `reference_table_name`.
+This will generate the saml templates for controller, view, initializer, etc.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Sp::Rails::Saml project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/sp-rails-saml/blob/master/CODE_OF_CONDUCT.md).
 
