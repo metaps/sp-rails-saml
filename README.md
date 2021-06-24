@@ -95,6 +95,16 @@ You need to add the follwing line to your reference model file:
 has_one :saml_setting, dependent: :destroy
 ```
 
+### 4. Migrate
+
+```
+$ rails db:migrate
+```
+
+### 5. Edit your saml credentials
+
+You can edit your saml credentials in `/saml/{reference_table_name}/:id/saml_settings/edit`.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
