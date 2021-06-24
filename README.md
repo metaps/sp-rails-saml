@@ -87,12 +87,12 @@ GET   /saml/saml_settings/edit
 PATCH /saml/saml_settings
 ```
 
-### 3. Setting relation
+### 3. Setting model relation
 
 You need to add the follwing line to your reference model file:
 
 ```ruby
-`has_one :saml_setting, dependent: :destroy`
+has_one :saml_setting, dependent: :destroy
 ```
 
 ## License
