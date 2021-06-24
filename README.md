@@ -87,6 +87,14 @@ GET   /saml/saml_settings/edit
 PATCH /saml/saml_settings
 ```
 
+### 3. Setting relation
+
+You need to add the follwing line to your reference model file:
+
+```ruby
+`has_one :saml_setting, dependent: :destroy`
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
