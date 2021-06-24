@@ -103,7 +103,7 @@ $ rails db:migrate
 
 ### 5. Edit your saml credentials
 
-You can edit your saml credentials in `/saml/{reference_table_name}/:id/saml_settings/edit`.
+You can edit your saml credentials in `/saml/saml_settings/edit`.
 
 ## License
 
