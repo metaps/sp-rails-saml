@@ -11,11 +11,11 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg">
 </p>
 
-# Introduction
+# :bulb: Introduction
 
 sp-rails-saml is to be make onelogin ruby-saml easier to use in Ruby on Rails.
 
-## Installation
+# :arrow_down: Installation
 
 sp-rails-saml works with Rails 6.1 onwards.
 Add the following line to your Gemfile:
@@ -36,9 +36,9 @@ Or install it yourself as:
 $ gem install sp-rails-saml
 ```
 
-## Usage
+# :wrench: Usage
 
-### 1. Generate saml templates
+## 1. Generate saml templates
 
 You need to run the generator:
 
@@ -65,7 +65,7 @@ This will generate the saml templates for controller, view, initializer, etc.
 **Migration**
 - [db/migrate/create_saml_settings](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/migrations/create_saml_settings.rb)
 
-### 2. Add routing
+## 2. Add routing
 
 You need to add the following line to your `config/routes.rb`:
 
@@ -87,7 +87,7 @@ GET   /saml/saml_settings/edit
 PATCH /saml/saml_settings
 ```
 
-### 3. Setting model relation
+## 3. Setting model relation
 
 You need to add the follwing line to your reference model file:
 
@@ -95,17 +95,17 @@ You need to add the follwing line to your reference model file:
 has_one :saml_setting, dependent: :destroy
 ```
 
-### 4. Migrate
+## 4. Migrate
 
 ```
 $ rails db:migrate
 ```
 
-### 5. Edit your saml credentials
+## 5. Edit your saml credentials
 
 You can edit your saml credentials in `/saml/saml_settings/edit`.
 
-## License
+# :page_facing_up: License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
