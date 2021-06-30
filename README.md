@@ -36,7 +36,8 @@ Or install it yourself as:
 $ gem install sp-rails-saml
 ```
 
-## :wrench: Usage
+## :wrench: Getting started
+
 
 ### 1. Generate saml templates
 
@@ -47,7 +48,7 @@ $ rails g sp_rails_saml:install {reference_table_name}
 ```
 
 At this point, you need to write your account table name in `reference_table_name`.
-This will generate the saml templates for controller, view, initializer, etc.
+This will generate the saml templates for controller, view, model, initializer, etc.
 
 **Controller**
 - [app/controllers/saml/sessions_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/sessions_controller.rb)
@@ -67,7 +68,7 @@ This will generate the saml templates for controller, view, initializer, etc.
 
 ### 2. Add routing
 
-You need to add the following line to your `config/routes.rb`:
+To cofigure routings for above templates,  just add the following line to your `config/routes.rb`:
 
 ```ruby
 sp_rails_saml_routes
@@ -87,9 +88,9 @@ GET   /saml/saml_settings/edit
 PATCH /saml/saml_settings
 ```
 
-### 3. Setting model relation
+### 3. Setting model associations
 
-You need to add the follwing line to your reference model file:
+If you associate your the reference table and the saml model, you need to add the follwing line to your reference model file:
 
 ```ruby
 has_one :saml_setting, dependent: :destroy
@@ -97,13 +98,15 @@ has_one :saml_setting, dependent: :destroy
 
 ### 4. Migrate
 
+You need to run migration command.
+
 ```
 $ rails db:migrate
 ```
 
 ### 5. Edit your saml credentials
 
-You can edit your saml credentials in `/saml/saml_settings/edit`.
+Once the above process complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
 
 ## :page_facing_up: License
 
