@@ -1,6 +1,5 @@
 require 'singleton'
 
-# rubocop:disable Style/ClassVars
 module SpRailsSaml
   # SAML2 settings for initializer.
   #
@@ -25,8 +24,6 @@ module SpRailsSaml
                 :user_find_key,
                 :account_find_key
 
-    @@setuped = false
-
     class << self
       attr_accessor :name_identifier_format,
                     :authn_context,
@@ -37,8 +34,6 @@ module SpRailsSaml
                     :account_find_key
 
       def setup
-        raise SpRailsSaml::MultiSetupError if @@setuped
-
         yield self
 
         setting = SpRailsSaml::Settings.instance
@@ -50,10 +45,7 @@ module SpRailsSaml
         setting.instance_variable_set(:@account_class, SpRailsSaml::Settings.account_class)
         setting.instance_variable_set(:@user_find_key, SpRailsSaml::Settings.user_find_key || RUBY_SAML_DEFAULT_SETTINGS[:user_find_key])
         setting.instance_variable_set(:@account_find_key, SpRailsSaml::Settings.account_find_key || RUBY_SAML_DEFAULT_SETTINGS[:account_find_key])
-
-        @@setuped = true
       end
     end
   end
 end
-# rubocop:enable Style/ClassVars

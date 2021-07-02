@@ -42,22 +42,6 @@ RSpec.describe SpRailsSaml::Settings do
       expect(sp_rails_saml_setting.account_find_key).to eq account_find_key
     end
 
-    it 'raise if twice setup' do
-      SpRailsSaml::Settings.setup do |config|
-        config.name_identifier_format = name_identifier_format
-        config.authn_context = authn_context
-        config.authn_context_comparison = authn_context_comparison
-        config.user_class = user_class
-        config.account_class = account_class
-      end
-
-      expect {
-        SpRailsSaml::Settings.setup do |config|
-          config.name_identifier_format = name_identifier_format
-        end
-      }.to raise_error(SpRailsSaml::MultiSetupError)
-    end
-
     it 'raise if set setting value' do
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
       expect { sp_rails_saml_setting.name_identifier_format = 'new_value' }.to raise_error(NoMethodError)

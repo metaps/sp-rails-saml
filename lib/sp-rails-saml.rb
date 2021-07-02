@@ -14,8 +14,6 @@ module SpRailsSaml
 
   class SettingValidationError < Error; end
 
-  class MultiSetupError < Error; end
-
   class SamlLoginForbidden < Error; end
 
   class LoginUserNotFound < Error; end
