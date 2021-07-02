@@ -8,7 +8,7 @@ module Saml
     # POST /saml/sign_in
     def create
       setting = SpRailsSaml::Settings.instance
-      user = setting.user_class.find_by(setting.user_find_key => params[:email])
+      user = setting.user_class.find_by!(setting.user_find_key => params[:email])
       account = user.send(setting.account_class.to_s.downcase.to_sym)
 
       raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?

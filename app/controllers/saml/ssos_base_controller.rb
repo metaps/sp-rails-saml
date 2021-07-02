@@ -7,7 +7,7 @@ module Saml
     # POST /saml/metadata/:id
     def consume
       setting = SpRailsSaml::Settings.instance
-      account = setting.account_class.find_by(setting.account_find_key => params[setting.account_find_key])
+      account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
 
       raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
 
@@ -26,7 +26,7 @@ module Saml
     # GET /saml/metadata/:id
     def metadata
       setting = SpRailsSaml::Settings.instance
-      account = setting.account_class.find_by(setting.account_find_key => params[setting.account_find_key])
+      account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
       metadata = SpRailsSaml::Metadata.new(account: account)
       render xml: metadata.generate
     end

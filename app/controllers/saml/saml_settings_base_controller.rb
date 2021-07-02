@@ -4,22 +4,22 @@ module Saml
     # GET /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings
     def show
       setting = SpRailsSaml::Settings.instance
-      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
-      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
+      account = setting.account_class.find_by!(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account.saml_setting : account.build_smal_setting
     end
 
     # GET /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings/edit
     def edit
       setting = SpRailsSaml::Settings.instance
-      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
-      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
+      account = setting.account_class.find_by!(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account.saml_setting : account.build_smal_setting
     end
 
     # PATCH /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings
     def update
       setting = SpRailsSaml::Settings.instance
-      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
-      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
+      account = setting.account_class.find_by!(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account.saml_setting : account.build_smal_setting
 
       @saml_setting.assign_attributes(saml_setting_params)
 
