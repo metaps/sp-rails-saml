@@ -5,7 +5,7 @@ namespace :saml do
 
   unless @sso_only
     # Saml settings for SP
-    resources SpRailsSaml::Settings.instance.account_class.to_s.downcase.to_sym, only: [], param => SpRailsSaml::Settings.instance.account_find_key do
+    resources SpRailsSaml::Settings.instance.account_class.to_s.downcase.to_sym, only: [], param: SpRailsSaml::Settings.instance.account_find_key do
       resource :saml_settings, only: %i[show edit update]
     end
   end
