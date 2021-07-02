@@ -16,7 +16,7 @@ module Saml
 
       raise SpRailsSaml::SamlResponseInvalid, saml_response.errors unless saml_response.valid?
 
-      user = setting.user_class.find_by(setting.user_find_key => saml_response.name_id)
+      user = setting.user_class.find_by(setting.saml_response_user_find_key => saml_response.name_id)
 
       raise SpRailsSaml::LoginUserNotFound if user.blank?
 

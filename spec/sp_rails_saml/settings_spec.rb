@@ -15,6 +15,7 @@ RSpec.describe SpRailsSaml::Settings do
     let(:account_class) { Account }
     let(:user_find_key) { :label }
     let(:account_find_key) { :label }
+    let(:saml_response_user_find_key) { :label }
 
     before do
       SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
@@ -29,6 +30,7 @@ RSpec.describe SpRailsSaml::Settings do
         config.account_class = account_class
         config.user_find_key = user_find_key
         config.account_find_key = account_find_key
+        config.saml_response_user_find_key = saml_response_user_find_key
       end
 
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
@@ -40,6 +42,7 @@ RSpec.describe SpRailsSaml::Settings do
       expect(sp_rails_saml_setting.account_class).to eq account_class
       expect(sp_rails_saml_setting.user_find_key).to eq user_find_key
       expect(sp_rails_saml_setting.account_find_key).to eq account_find_key
+      expect(sp_rails_saml_setting.saml_response_user_find_key).to eq saml_response_user_find_key
     end
 
     it 'raise if set setting value' do
