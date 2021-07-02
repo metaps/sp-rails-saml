@@ -11,14 +11,19 @@ module SpRailsSaml
       compress_request: true,
       skip_subject_confirmation: true,
       skip_conditions: true,
-      want_assertions_signed: true
+      skip_destination: false,
+      want_assertions_signed: true,
+      account_find_key: :id,
+      user_find_key: :email
     }.freeze
 
     attr_reader :name_identifier_format,
                 :authn_context,
                 :authn_context_comparison,
                 :user_class,
-                :account_class
+                :account_class,
+                :user_find_key,
+                :account_find_key
 
     @@setuped = false
 
@@ -27,7 +32,9 @@ module SpRailsSaml
                     :authn_context,
                     :authn_context_comparison,
                     :user_class,
-                    :account_class
+                    :account_class,
+                    :user_find_key,
+                    :account_find_key
 
       def setup
         raise SpRailsSaml::MultiSetupError if @@setuped
@@ -41,6 +48,8 @@ module SpRailsSaml
         setting.instance_variable_set(:@authn_context_comparison, SpRailsSaml::Settings.authn_context_comparison)
         setting.instance_variable_set(:@user_class, SpRailsSaml::Settings.user_class)
         setting.instance_variable_set(:@account_class, SpRailsSaml::Settings.account_class)
+        setting.instance_variable_set(:@user_find_key, SpRailsSaml::Settings.user_find_key || RUBY_SAML_DEFAULT_SETTINGS[:user_find_key])
+        setting.instance_variable_set(:@account_find_key, SpRailsSaml::Settings.account_find_key || RUBY_SAML_DEFAULT_SETTINGS[:account_find_key])
 
         @@setuped = true
       end

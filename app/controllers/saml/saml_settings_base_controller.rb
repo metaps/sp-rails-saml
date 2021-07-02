@@ -1,22 +1,25 @@
 module Saml
   # Controller to register saml by SP
   class SamlSettingsBaseController < SamlBaseController
-    # GET /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings
+    # GET /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings
     def show
-      account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
-      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
+      setting = SpRailsSaml::Settings.instance
+      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
     end
 
-    # GET /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings/edit
+    # GET /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings/edit
     def edit
-      account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
-      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
+      setting = SpRailsSaml::Settings.instance
+      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
     end
 
-    # PATCH /saml/SpRailsSaml::Settings.account_class.to_s.downcase/:#{SpRailsSaml::Settings.account_class.to_s.downcase}_id/saml_settings
+    # PATCH /saml/account_class/:#{account_class}_#{account_find_key}/saml_settings
     def update
-      account = SpRailsSaml::Settings.account_class.find_by(id: params["#{SpRailsSaml::Settings.account_class.to_s.downcase}_id"])
-      @saml_setting = SamlSetting.find_or_initialize_by("#{SpRailsSaml::Settings.account_class.to_s.downcase}_id" => account.id)
+      setting = SpRailsSaml::Settings.instance
+      account = setting.account_class.find_by(setting.account_find_key => params["#{setting.account_class.to_s.downcase}_#{setting.account_find_key}"])
+      @saml_setting = account.saml_setting.present? ? account_saml_setting : account.build_smal_setting
 
       @saml_setting.assign_attributes(saml_setting_params)
 

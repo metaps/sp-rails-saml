@@ -26,8 +26,12 @@ module SpRailsSaml
 
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
 
-      settings.assertion_consumer_service_url = saml_sso_url(id: @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).id)
-      settings.sp_entity_id                   = saml_metadata_url(id: @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).id)
+      settings.assertion_consumer_service_url = saml_sp_consume_url(
+        @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).send(sp_rails_saml_setting.account_find_key)
+      )
+      settings.sp_entity_id = saml_sp_metadata_url(
+        @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).send(sp_rails_saml_setting.account_find_key)
+      )
       settings.name_identifier_format         = sp_rails_saml_setting.name_identifier_format
       settings.authn_context                  = sp_rails_saml_setting.authn_context
       settings.authn_context_comparison       = sp_rails_saml_setting.authn_context_comparison

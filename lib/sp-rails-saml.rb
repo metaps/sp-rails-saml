@@ -18,6 +18,10 @@ module SpRailsSaml
 
   class SamlLoginForbidden < Error; end
 
+  class LoginUserNotFound < Error; end
+
+  class SamlResponseInvalid < Error; end
+
   autoload :Authnrequest, File.expand_path('./sp-rails-saml/authnrequest', __dir__)
   autoload :SamlResponse, File.expand_path('./sp-rails-saml/saml_response', __dir__)
   autoload :Metadata, File.expand_path('./sp-rails-saml/metadata', __dir__)

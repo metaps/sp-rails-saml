@@ -13,6 +13,8 @@ RSpec.describe SpRailsSaml::Settings do
     let(:assertion_consumer_service_url) { 'assertion_consumer_service_url' }
     let(:user_class) { User }
     let(:account_class) { Account }
+    let(:user_find_key) { :label }
+    let(:account_find_key) { :label }
 
     before do
       SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
@@ -25,6 +27,8 @@ RSpec.describe SpRailsSaml::Settings do
         config.authn_context_comparison = authn_context_comparison
         config.user_class = user_class
         config.account_class = account_class
+        config.user_find_key = user_find_key
+        config.account_find_key = account_find_key
       end
 
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
@@ -34,6 +38,8 @@ RSpec.describe SpRailsSaml::Settings do
       expect(sp_rails_saml_setting.authn_context_comparison).to eq authn_context_comparison
       expect(sp_rails_saml_setting.user_class).to eq user_class
       expect(sp_rails_saml_setting.account_class).to eq account_class
+      expect(sp_rails_saml_setting.user_find_key).to eq user_find_key
+      expect(sp_rails_saml_setting.account_find_key).to eq account_find_key
     end
 
     it 'raise if twice setup' do
