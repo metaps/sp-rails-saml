@@ -104,7 +104,25 @@ You need to run migration command.
 $ rails db:migrate
 ```
 
-### 5. Edit your saml credentials
+### 5. Add before action
+You need to add the follwing line to your `SsosController` and `SesseionController`:
+
+```ruby
+skip_before_action :authenticate_user!
+```
+
+### 6. Add SSO method to ApplicationController
+
+You need to add the follwing line to your `ApplicationController`:
+
+```ruby
+def sign_in_with_saml(user)
+  sign_in(:user, user)
+  redirect_to root_path
+end
+```
+
+### 7. Edit your saml credentials
 
 Once the above process complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
 
