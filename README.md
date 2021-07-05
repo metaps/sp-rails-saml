@@ -68,7 +68,7 @@ This will generate the saml templates for controller, view, model, initializer, 
 
 ### 2. Add routing
 
-To cofigure routings for above templates,  just add the following line to your `config/routes.rb`:
+To configure routings for above templates,  just add the following line to your `config/routes.rb`:
 
 ```ruby
 sp_rails_saml_routes
@@ -90,7 +90,7 @@ PATCH /saml/saml_settings
 
 ### 3. Setting model associations
 
-If you associate your the reference table and the saml model, you need to add the follwing line to your reference model file:
+If you associate the reference table and the saml model, you need to add the follwing line to your reference model file:
 
 ```ruby
 has_one :saml_setting, dependent: :destroy
@@ -105,7 +105,7 @@ $ rails db:migrate
 ```
 
 ### 5. Add before action
-You need to add the follwing line to your `SsosController` and `SesseionController`:
+You need to add the following line to your `SsosController` and `SessionController`:
 
 ```ruby
 skip_before_action :authenticate_user!
@@ -124,7 +124,7 @@ end
 
 ### 7. Edit your saml credentials
 
-Once the above process complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
+Once the above process is complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
 
 ## :page_facing_up: License
 
