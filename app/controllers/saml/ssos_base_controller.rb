@@ -6,26 +6,27 @@ module Saml
 
     # POST /saml/metadata/:id
     def consume
-      account = SpRailsSaml::Settings.account_class.find(params[:id])
+      setting = SpRailsSaml::Settings.instance
+      account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
 
       raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
 
       saml_setting = account.saml_setting
       saml_response = SpRailsSaml::SamlResponse.new(params[:SAMLResponse], saml_setting)
 
-      if saml_response.valid?
-        user = SpRailsSaml::Settings.user_class.find_by(email: saml_response.name_id)
-        raise LoginUserNotFound if user.blank?
+      raise SpRailsSaml::SamlResponseInvalid, saml_response.errors unless saml_response.valid?
 
-        sign_in_with_saml(user)
-      else
-        redirect_to saml_sign_in_path, alert: 'failed to login'
-      end
+      user = setting.user_class.find_by(setting.saml_response_user_find_key => saml_response.name_id)
+
+      raise SpRailsSaml::LoginUserNotFound if user.blank?
+
+      sign_in_with_saml(user)
     end
 
     # GET /saml/metadata/:id
     def metadata
-      account = SpRailsSaml::Settings.account_class.find(params[:id])
+      setting = SpRailsSaml::Settings.instance
+      account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
       metadata = SpRailsSaml::Metadata.new(account: account)
       render xml: metadata.generate
     end

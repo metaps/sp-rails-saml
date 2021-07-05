@@ -22,7 +22,8 @@ module SpRailsSaml
         @saml_response,
         settings: ruby_saml_settings,
         skip_subject_confirmation: SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:skip_subject_confirmation],
-        skip_conditions: SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:skip_conditions]
+        skip_conditions: SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:skip_conditions],
+        skip_destination: SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:skip_destination]
       )
     end
 
@@ -45,7 +46,8 @@ module SpRailsSaml
     private
 
     def required_value_is_set?
-      @saml_setting.idp_cert.present?
+      # ruby-samlの仕様上、idp_entity_idが空だとissuer = idp_entity_idの検証が行われないため、idp_entity_idがblankの検証は必須
+      @saml_setting.idp_cert.present? && @saml_setting.idp_entity_id.present?
     end
 
     def ruby_saml_settings
@@ -55,11 +57,17 @@ module SpRailsSaml
 
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
 
-      settings.assertion_consumer_service_url     = saml_sso_url(id: @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).id)
-      settings.sp_entity_id                       = saml_metadata_url(id: @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).id)
+      settings.assertion_consumer_service_url = saml_sp_consume_url(
+        @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).send(sp_rails_saml_setting.account_find_key)
+      )
+      settings.sp_entity_id = saml_sp_metadata_url(
+        @saml_setting.send(sp_rails_saml_setting.account_class.to_s.downcase.to_sym).send(sp_rails_saml_setting.account_find_key)
+      )
       settings.idp_cert                           = @saml_setting.idp_cert
+      settings.idp_entity_id                      = @saml_setting.idp_entity_id
       settings.security[:want_assertions_signed]  =
         SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:want_assertions_signed]
+
       settings
     end
   end
