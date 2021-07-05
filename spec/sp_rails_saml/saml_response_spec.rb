@@ -30,8 +30,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
 
     context 'when valid saml response' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-        allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
       end
 
       it 'should return true' do
@@ -41,8 +41,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
 
     context 'when sp_entity_id is not equal issuer' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-        allow(saml_response).to receive(:saml_metadata_url).and_return('dummy')
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return('dummy')
       end
 
       it 'should return false' do
@@ -52,8 +52,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
 
     context 'when certificate is not valid' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-        allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
         saml_setting.idp_cert = file_fixture('wrong_certificate')
       end
 
@@ -64,8 +64,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
 
     context 'when assertion_consumer_service_url is not equal Destination' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return('dummy')
-        allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return('dummy')
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
       end
 
       it 'should return false' do
@@ -73,11 +73,23 @@ RSpec.describe SpRailsSaml::SamlResponse do
       end
     end
 
-    context 'lack of setting value' do
+    context 'when idp_cert is blank' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-        allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
         saml_setting.idp_cert = nil
+      end
+
+      it 'should return SettingValidationError' do
+        expect { saml_response.response }.to raise_error(SpRailsSaml::SettingValidationError)
+      end
+    end
+
+    context 'when idp_entity_id is blank' do
+      before do
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
+        saml_setting.idp_entity_id = nil
       end
 
       it 'should return SettingValidationError' do
@@ -98,8 +110,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
 
     before do
-      allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-      allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+      allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+      allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
     end
 
     it 'should return name_id' do
@@ -119,8 +131,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
     let(:saml_response) { SpRailsSaml::SamlResponse.new(saml_response_base64_str, saml_setting) }
 
     before do
-      allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-      allow(saml_response).to receive(:saml_metadata_url).and_return(sp_entity_id)
+      allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+      allow(saml_response).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
     end
 
     it 'should return name_identifier_format' do
@@ -141,8 +153,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
 
     context 'when sp_entity_id is not equal issuer' do
       before do
-        allow(saml_response).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-        allow(saml_response).to receive(:saml_metadata_url).and_return('dummy')
+        allow(saml_response).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+        allow(saml_response).to receive(:saml_sp_metadata_url).and_return('dummy')
       end
 
       # エラーに関してはruby-samlの内容をそのまま渡しているだけなので、エラーが返ってくることのみ検証して、それぞれの設定値に対するエラー内容の検証は行いません。

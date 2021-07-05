@@ -30,8 +30,8 @@ module SpRailsSaml
 
       sp_rails_saml_setting = SpRailsSaml::Settings.instance
 
-      settings.assertion_consumer_service_url     = saml_sso_url(@account.id)
-      settings.sp_entity_id                       = saml_metadata_url(@account.id)
+      settings.assertion_consumer_service_url     = saml_sp_consume_url(@account.send(sp_rails_saml_setting.account_find_key))
+      settings.sp_entity_id                       = saml_sp_metadata_url(@account.send(sp_rails_saml_setting.account_find_key))
       settings.name_identifier_format             = sp_rails_saml_setting.name_identifier_format
       settings.security[:want_assertions_signed]  =
         SpRailsSaml::Settings::RUBY_SAML_DEFAULT_SETTINGS[:want_assertions_signed]

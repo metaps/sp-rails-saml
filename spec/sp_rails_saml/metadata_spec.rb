@@ -1,4 +1,4 @@
-RSpec.describe SpRailsSaml::SamlResponse do
+RSpec.describe SpRailsSaml::Metadata do
   let(:saml_setting) { OpenStruct.new(idp_sso_url: 'https://example.com', idp_entity_id: 'https://example.com', account: OpenStruct.new(id: 1)) }
   let(:sp_entity_id) { 'https://example.com/sp' }
   let(:name_identifier_format) { 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress' }
@@ -11,8 +11,8 @@ RSpec.describe SpRailsSaml::SamlResponse do
   before do
     SpRailsSaml::Settings.class_variable_set(:@@setuped, false)
 
-    allow(metadata).to receive(:saml_sso_url).and_return(assertion_consumer_service_url)
-    allow(metadata).to receive(:saml_metadata_url).and_return(sp_entity_id)
+    allow(metadata).to receive(:saml_sp_consume_url).and_return(assertion_consumer_service_url)
+    allow(metadata).to receive(:saml_sp_metadata_url).and_return(sp_entity_id)
 
     SpRailsSaml::Settings.setup do |config|
       config.name_identifier_format = name_identifier_format
