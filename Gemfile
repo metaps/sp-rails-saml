@@ -10,5 +10,5 @@ gem 'ruby-saml'
 group :test do
   gem 'generator_spec'
   gem 'pry'
-  gem 'rails', '~> 6.1.0'
+  gem 'rails', '~> 6.1.4'
 end
