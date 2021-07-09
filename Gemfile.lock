@@ -126,7 +126,7 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
-    rake (13.0.3)
+    rake (13.0.6)
     rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
