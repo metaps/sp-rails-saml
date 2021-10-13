@@ -146,6 +146,15 @@ end
 
 Once the above process is complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
 
+
+## Check Saml Value
+
+sp-rails-saml only validate below list value
+
+- SAML Response AudienceRestriction
+- SAML Response Signature
+- SAML Response Destination
+
 ## :page_facing_up: License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
