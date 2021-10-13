@@ -4,7 +4,7 @@ module Saml
   class SsosBaseController < SamlBaseController
     skip_forgery_protection only: %w[consume]
 
-    # POST /saml/metadata/:id
+    # POST /saml/sp/consume/:id
     def consume
       setting = SpRailsSaml::Settings.instance
       account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
@@ -23,7 +23,7 @@ module Saml
       sign_in_with_saml(user)
     end
 
-    # GET /saml/metadata/:id
+    # GET /saml/sp/metadata/:id
     def metadata
       setting = SpRailsSaml::Settings.instance
       account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
