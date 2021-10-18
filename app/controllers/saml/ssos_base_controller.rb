@@ -4,7 +4,7 @@ module Saml
   class SsosBaseController < SamlBaseController
     skip_forgery_protection only: %w[consume]
 
-    # POST /saml/metadata/:id
+    # POST /saml/sp/consume/:id
     def consume
       setting = SpRailsSaml::Settings.instance
       account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
@@ -16,14 +16,14 @@ module Saml
 
       raise SpRailsSaml::SamlResponseInvalid, saml_response.errors unless saml_response.valid?
 
-      user = setting.user_class.find_by(setting.saml_response_user_find_key => saml_response.name_id)
+      user = setting.user_class.find_by(setting.saml_response_user_find_key => saml_response.name_id, setting.account_class.to_s.downcase => account)
 
       raise SpRailsSaml::LoginUserNotFound if user.blank?
 
       sign_in_with_saml(user)
     end
 
-    # GET /saml/metadata/:id
+    # GET /saml/sp/metadata/:id
     def metadata
       setting = SpRailsSaml::Settings.instance
       account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])

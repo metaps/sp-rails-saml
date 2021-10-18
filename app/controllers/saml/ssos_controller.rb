@@ -2,12 +2,12 @@
 
 module Saml
   class SsosController < SsosBaseController
-    # POST /saml/sso/:id
+    # POST /saml/sp/consume/:id
     # def consume
     #   super
     # end
 
-    # GET /saml/metadata/:id
+    # GET /saml/sp/metadata/:id
     # def metadata
     #   super
     # end
