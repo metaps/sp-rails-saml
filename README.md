@@ -50,6 +50,13 @@ $ rails g sp_rails_saml:install {reference_table_name}
 At this point, you need to write your account table name in `reference_table_name`.
 This will generate the saml templates for controller, view, model, initializer, etc.
 
+
+If you need only saml sp initiated and idp initiated template
+
+```
+$ rails g sp_rails_saml:install {reference_table_name} --settings false
+```
+
 **Controller**
 - [app/controllers/saml/sessions_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/sessions_controller.rb)
 - [app/controllers/saml/ssos_controller.rb](https://github.com/metaps/sp-rails-saml/blob/develop/lib/generators/sp-rails-saml/templates/controllers/sessions_controller.rb)
@@ -72,15 +79,24 @@ To configure routings for above templates,  just add the following line to your 
 
 ```ruby
 sp_rails_saml_routes
+
+# if you need only saml sp initiated and idp initiated routing
+sp_rails_saml_routes(sso_only: true)
 ```
 
 This routing method encompasses the following endpoints:
 
 ```
-GET  /saml/metadata/:id
-POST /saml/sso/:id
+# metadata url
+GET  /saml/sp/metadata/:id
 
+# acs url
+POST /saml/sp/consume/:id
+
+# saml login page
 GET  /saml/sign_in
+
+# start saml sp initiated
 POST /saml/sign_in
 
 GET   /saml/saml_settings
@@ -117,6 +133,11 @@ You need to add the follwing line to your `ApplicationController`:
 
 ```ruby
 def sign_in_with_saml(user)
+  # add create session logic
+end
+
+# using devise example
+def sign_in_with_saml(user)
   sign_in(:user, user)
   redirect_to root_path
 end
@@ -125,6 +146,15 @@ end
 ### 7. Edit your saml credentials
 
 Once the above process is complete, you can edit your saml credentials in `/saml/saml_settings/edit`.
+
+
+## Check Saml Value
+
+sp-rails-saml only validate below list value
+
+- SAML Response AudienceRestriction
+- SAML Response Signature
+- SAML Response Destination
 
 ## :page_facing_up: License
 
