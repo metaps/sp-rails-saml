@@ -9,6 +9,7 @@ module Saml
       setting = SpRailsSaml::Settings.instance
       account = setting.account_class.find_by!(setting.account_find_key => params[setting.account_find_key])
 
+      raise SpRailsSaml::SamlSettingNotFound if account.saml_setting.blank?
       raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
 
       saml_setting = account.saml_setting

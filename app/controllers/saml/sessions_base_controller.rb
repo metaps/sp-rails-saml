@@ -11,6 +11,7 @@ module Saml
       user = setting.user_class.find_by!(setting.user_find_key => params[:email])
       account = user.send(setting.account_class.to_s.downcase.to_sym)
 
+      raise SpRailsSaml::SamlSettingNotFound if account.saml_setting.blank?
       raise SpRailsSaml::SamlLoginForbidden if account.saml_setting.password_only?
 
       if user.blank?

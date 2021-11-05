@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sp-rails-saml (1.0.2)
+    sp-rails-saml (1.0.3)
       ruby-saml
 
 GEM

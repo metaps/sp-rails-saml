@@ -50,6 +50,7 @@ $ rails g sp_rails_saml:install {reference_table_name}
 At this point, you need to write your account table name in `reference_table_name`.
 This will generate the saml templates for controller, view, model, initializer, etc.
 
+
 If you need only saml sp initiated and idp initiated template
 
 ```
